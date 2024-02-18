@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100">
+  <header class="sticky top-0 z-30 w-full border-b border-transparent max-md:border-gray-100 bg-gray/50 backdrop-blur-xl md:border-gray-100">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
       <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->

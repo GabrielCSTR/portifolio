@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import profileImage from '@/assets/perfil.jpg'
 import SkillComponent from '@/components/SkillComponent.vue';
 import { ISkill } from '@/types/index';
+import { useGithub } from '@/composable/useGithub'
+import ProjectCard from '@/components/ProjectCard.vue'
+
+const { getProjects } = useGithub();
 
 const skillsInfo = ref<ISkill[]>([
   {
@@ -131,16 +135,27 @@ const skillsInfo = ref<ISkill[]>([
   }
 ]);
 
+const projects: any = ref([])
+onMounted(async () => {
+    const gitHubProjects = await getProjects();
+    if (gitHubProjects) {
+        projects.value = gitHubProjects;
+    }
+    console.log("DAAAAAA", projects.value);
+})
+
+
 </script>
 
 <template>
     <main class="flex min-h-screen w-full flex-col">
 
+        <!-- SECTIO HERO -->
         <section class="w-full bg-gray py-16 md:py-20 2xl:py-24" id="hero">
             <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 md:gap-12 md:px-8">
                 <div class="flex flex-col gap-12 md:flex-row">
                     <div class="flex items-center justify-center md:order-last md:flex-grow md:justify-end">
-                        <div class="relative h-[300px] w-[280px] md:h-[360px] md:w-[320px]"><img alt="Headshot of Sagar"
+                        <div class="hover:animate-pulse relative h-[300px] w-[280px] md:h-[360px] md:w-[320px]"><img alt="Profile"
                                 loading="lazy" width="1067" height="1067" decoding="async" data-nimg="1"
                                 class="absolute z-10 h-[280px] w-[240px] border-8 border-gray max-md:left-5 md:left-0 md:top-0 md:h-[320px] md:w-[280px]"
                                 style="color:transparent;object-fit:cover"
@@ -148,6 +163,7 @@ const skillsInfo = ref<ISkill[]>([
                             <div
                                 class="absolute h-[280px] w-[280px] border-8 border-transparent bg-gray-200 max-md:top-5 md:bottom-0 md:right-0 md:h-[320px] md:w-[280px]">
                             </div>
+                            <span class="animate-ping absolute h-[220px] ml-4 mt-5 w-[220px] inline-flex border-2 rounded-2xl border-green-400 opacity-75"></span>
                         </div>
                     </div>
                     <div
@@ -219,7 +235,7 @@ const skillsInfo = ref<ISkill[]>([
         </section>
 
         <!-- SECTION SKILLS -->
-        <section class="w-full bg-gray dark:bg-gray-50 py-16 md:py-20 2xl:py-24">
+        <section class="w-full bg-gray dark:bg-gray-50 py-16 md:py-20 2xl:py-24" id="skills">
             <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 md:gap-12 md:px-8">
                 <div class="flex flex-col items-center gap-4">
                     <div class="self-center">
@@ -227,19 +243,31 @@ const skillsInfo = ref<ISkill[]>([
                             <p class="text-normal text-sm font-medium">My Tech Stack</p>
                         </div>
                     </div>
-                <p class="text-normal text-lg md:text-xl max-w-xl text-center">The skills, tools and technologies I am
-                    really good at:</p>
-            </div>
+                    <p class="text-normal text-lg md:text-xl max-w-xl text-center">The skills, tools and technologies I am
+                        really good at:</p>
+                </div>
 
-            <div class="grid grid-cols-3 gap-y-4 md:grid-cols-6 md:gap-y-8 lg:grid-cols-8 lg:gap-y-12">
-                <SkillComponent :items="skillsInfo"/>
+                <div class="grid grid-cols-3 gap-y-4 md:grid-cols-6 md:gap-y-8 lg:grid-cols-8 lg:gap-y-12">
+                    <SkillComponent :items="skillsInfo"/>
+                </div>
             </div>
-        </div>
         </section>
 
         <!-- SECTION PROJECTS -->
         <section class="w-full bg-gray py-16 md:py-20 2xl:py-24">
-            <h1>PROJECTS</h1>
+            <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 md:gap-12 md:px-8">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="self-center">
+                        <div class="flex items-center justify-center rounded-xl bg-gray-200 px-5 py-1">
+                            <p class="text-normal text-sm font-medium">Projects</p>
+                        </div>
+                    </div>
+                    <p class="text-normal text-lg md:text-xl max-w-xl text-center">Some of the noteworthy projects I have built:</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <ProjectCard v-for="project in projects" :key="project.id" :project="project" class="flex-1" />
+                </div>
+            </div>
         </section>
 
 </main>
