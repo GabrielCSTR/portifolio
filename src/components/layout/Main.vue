@@ -1,5 +1,136 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import profileImage from '@/assets/perfil.jpg'
+import SkillComponent from '@/components/SkillComponent.vue';
+import { ISkill } from '@/types/index';
+
+const skillsInfo = ref<ISkill[]>([
+  {
+    url: "https://temporal.com",
+    img_src: "temporal.png",
+    skill_text: "Temporal"
+  },
+  {
+    url: "https://www.docker.com",
+    img_src: "docker-svgrepo-com.svg",
+    skill_text: "Docker"
+  },
+  {
+    url: "https://cloud.google.com/bigquery",
+    img_src: "bigquery-svgrepo-com.svg",
+    skill_text: "Big Query"
+  },
+  {
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    img_src: "icon-javascript.svg",
+    skill_text: "Javascript"
+  },
+  {
+    url: "https://www.typescriptlang.org/",
+    img_src: "icon-typescript.svg",
+    skill_text: "Typescript"
+  },
+
+  {
+    url: "https://vuejs.org/",
+    img_src: "vue.svg",
+    skill_text: "Vue.js"
+  },
+  {
+    url: "https://go.dev/doc/",
+    img_src: "go-fuchsia-svgrepo-com.svg",
+    skill_text: "GO"
+  },
+  {
+    url: "https://nestjs.com/",
+    img_src: "icon-nest.svg",
+    skill_text: "Nest.js"
+  },
+  {
+    url: "https://nodejs.org/en",
+    img_src: "icon-nodejs.svg",
+    skill_text: "Node.js"
+  },
+  {
+    url: "https://expressjs.com/",
+    img_src: "icon-express-light.svg",
+    skill_text: "Express.js"
+  },
+
+  {
+    url: "https://socket.io/",
+    img_src: "icon-socket-light.svg",
+    skill_text: "Socket.io"
+  },
+  {
+    url: "https://www.postgresql.org/",
+    img_src: "icon-postgresql.svg",
+    skill_text: "PostgreSQL"
+  },
+  {
+    url: "https://www.mongodb.com/",
+    img_src: "icon-mongodb.svg",
+    skill_text: "MongoDB"
+  },
+  {
+    url: "https://dev.mysql.com/doc/",
+    img_src: "mysql-logo-svgrepo-com.svg",
+    skill_text: "Mysql"
+  },
+  {
+    url: "#",
+    img_src: "msql-server-svgrepo-com.svg",
+    skill_text: "SQL Server"
+  },
+
+  {
+    url: "https://sass-lang.com/",
+    img_src: "icon-sass.svg",
+    skill_text: "Sass/Scss"
+  },
+  {
+    url: "https://tailwindcss.com/",
+    img_src: "icon-tailwindcss.svg",
+    skill_text: "Tailwindcss"
+  },
+  {
+    url: "https://www.figma.com/",
+    img_src: "icon-figma.svg",
+    skill_text: "Figma"
+  },
+  {
+    url: "https://www.cypress.io/",
+    img_src: "icon-cypress-light.svg",
+    skill_text: "Cypress"
+  },
+  {
+    url: "https://storybook.js.org/",
+    img_src: "icon-storybook.svg",
+    skill_text: "Storybook"
+  },
+
+  {
+    url: "https://git-scm.com/",
+    img_src: "icon-git.svg",
+    skill_text: "Git"
+  },
+  {
+    url: "https://laravel.com/",
+    img_src: "laravel-svgrepo-com.svg",
+    skill_text: "Laravel"
+  },
+  {
+    url: "#",
+    img_src: "php02-svgrepo-com.svg",
+    skill_text: "PHP"
+  },
+  {
+    url: "#",
+    img_src: "csharp-svgrepo-com.svg",
+    skill_text: "Csharp"
+  }
+]);
+
 </script>
 
 <template>
@@ -87,6 +218,7 @@ import profileImage from '@/assets/perfil.jpg'
             </div>
         </section>
 
+        <!-- SECTION SKILLS -->
         <section class="w-full bg-gray dark:bg-gray-50 py-16 md:py-20 2xl:py-24">
             <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 md:gap-12 md:px-8">
                 <div class="flex flex-col items-center gap-4">
@@ -98,164 +230,16 @@ import profileImage from '@/assets/perfil.jpg'
                 <p class="text-normal text-lg md:text-xl max-w-xl text-center">The skills, tools and technologies I am
                     really good at:</p>
             </div>
+
             <div class="grid grid-cols-3 gap-y-4 md:grid-cols-6 md:gap-y-8 lg:grid-cols-8 lg:gap-y-12">
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://temporal.io"><img alt="TemporalIO"
-                            loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="@/assets/icons/temporal.png" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Temporal Io</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.docker.com"><img alt="Docker"
-                            loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="@/assets/icons/docker-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Docker</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://cloud.google.com/bigquery"><img alt="Big Query" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/bigquery-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Big Query</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="Javascript"
-                            loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="@/assets/icons/icon-javascript.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Javascript</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.typescriptlang.org/"><img alt="Typescript" loading="lazy" width="65"
-                            height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-typescript.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Typescript</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class="" href="https://react.dev/"><img
-                            alt="React" loading="lazy" width="71" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/vue.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Vue.js</p>
-                </div>
-                <!-- <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://nextjs.org/"><img alt="Next.js" loading="lazy" width="65" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-nextjs.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Next.js</p>
-                </div> -->
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://go.dev/doc/"><img alt="Go"
-                            loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="@/assets/icons/go-fuchsia-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">GO</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://nestjs.com/"><img alt="Nest.js" loading="lazy" width="67" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-nest.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Nest.js</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://nodejs.org/en"><img alt="Node.js" loading="lazy" width="57" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-nodejs.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Node.js</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://expressjs.com/"><img alt="Express.js" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-express-light.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Express.js</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class="" href="https://socket.io/"><img
-                            alt="Socket.io" loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
-                            class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-socket-light.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Socket.io</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.postgresql.org/"><img alt="PostgreSQL" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons//icon-postgresql.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">PostgreSQL</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.mongodb.com/"><img alt="MongoDB" loading="lazy" width="31" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-mongodb.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">MongoDB</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://dev.mysql.com/doc/"><img alt="Mysql" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/mysql-logo-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Mysql</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="#"><img alt="SqlServer" loading="lazy" width="71" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/msql-server-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">SQL Server</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://sass-lang.com/"><img alt="Sass/Scss" loading="lazy" width="65" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-sass.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Sass/Scss</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://tailwindcss.com/"><img alt="Tailwindcss" loading="lazy" width="106" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-tailwindcss.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Tailwindcss</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.figma.com/"><img alt="Figma" loading="lazy" width="44" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-figma.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Figma</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://www.cypress.io/"><img alt="Cypress" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-cypress-light.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Cypress</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://storybook.js.org/"><img alt="Storybook" loading="lazy" width="65" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-storybook.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Storybook</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://git-scm.com/"><img alt="Git" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/icon-git.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Git</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="https://laravel.com/"><img alt="Laravel" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/laravel-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Laravel</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="#"><img alt="PHP" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/php02-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">PHP</p>
-                </div>
-                <div class="flex flex-col items-center gap-2"><a target="_blank" class=""
-                        href="#"><img alt="Csharp" loading="lazy" width="64" height="64"
-                            decoding="async" data-nimg="1" class="transition-transform duration-300 md:hover:scale-110"
-                            src="/src/assets/icons/csharp-svgrepo-com.svg" style="color: transparent;"></a>
-                    <p class="text-normal text-base md:text-lg">Csharp</p>
-                </div>
+                <SkillComponent :items="skillsInfo"/>
             </div>
         </div>
+        </section>
+
+        <!-- SECTION PROJECTS -->
+        <section class="w-full bg-gray py-16 md:py-20 2xl:py-24">
+            <h1>PROJECTS</h1>
         </section>
 
 </main>
