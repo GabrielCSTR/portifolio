@@ -16,10 +16,7 @@
                 <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Home</a>
             </li>
             <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">About</a>
-            </li>
-            <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Skill</a>
+                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Tech Stack</a>
             </li>
             <li>
                 <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Projects</a>
