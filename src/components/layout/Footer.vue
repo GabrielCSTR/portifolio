@@ -2,7 +2,7 @@
 
 </script>
 <template>
-    <footer class="w-full bg-gray-50 py-6">
+    <footer class="w-full py-6">
         <p class="flex text-gray-500 justify-center sm:text-center text-normal text-sm items-center">
             <svg
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

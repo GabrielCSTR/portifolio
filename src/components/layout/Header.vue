@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 w-full border-b border-transparent max-md:border-gray-100 bg-gray/50 backdrop-blur-xl md:border-gray-100">
+  <header class="sticky top-0 z-30 w-full border-b border-transparent max-md:border-gray-100 bg-gray/50 backdrop-blur-xl md:border-gray-100 scroll-smooth">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
       <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
@@ -13,16 +13,16 @@
 
         <ul class="flex flex-col font-medium mt-4 pr-5 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
             <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Home</a>
+                <a v-scroll="200" href="#hero" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Home</a>
             </li>
             <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Tech Stack</a>
+                <a v-scroll="200" href="#skills" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Tech Stack</a>
             </li>
             <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Projects</a>
+                <a v-scroll="200" href="#projects" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Projects</a>
             </li>
             <li>
-                <a href="#" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Contact</a>
+                <a v-scroll="200" href="#contacts" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Contact</a>
             </li>
         </ul>
 
@@ -74,5 +74,4 @@
 </template>
 
 <style>
-
 </style>
