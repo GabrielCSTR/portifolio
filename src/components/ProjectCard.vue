@@ -28,12 +28,12 @@ const getTagValue = (tag: string) => {
 </script>
 
 <template>
-<div v-motion="{ from: 'right' }" class="max-w-sm bg-white border border-gray-200 dark:bg-gray-100 dark:shadow-2xl rounded-lg shadow">
+<div v-motion="{ from: 'right' }" class="max-w-sm bg-primary-gray-100 border border-gray-200 dark:bg-gray-100 dark:shadow-2xl rounded-lg shadow overflow-hidden">
     <div class="p-5">
         <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ project.name }}</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-primary-gray-900 dark:text-white"> {{ project.name }}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{ project.description }}</p>
+        <p class="mb-3 font-normal text-primary-gray-700 dark:text-gray-400"> {{ project.description }}</p>
         <div class="flex flex-wrap gap-2">
             <img v-for="tag in project.tags" :key="tag" alt="language" :src="`https://img.shields.io/badge/${getTagValue(tag)}-0D1117?style=for-the-badge&logo=${getTagValue(tag)}`" />
         </div>

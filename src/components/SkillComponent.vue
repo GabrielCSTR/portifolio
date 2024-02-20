@@ -9,13 +9,13 @@ const getImageUrl = (name:string) => {
 </script>
 
 <template>
-    <div v-motion="{ from: 'right' }" class="flex flex-col items-center gap-2">
+    <div v-motion="{ from: 'right' }" class="flex flex-col items-center gap-2 overflow-hidden">
         <a target="_blank" :href="skill.url">
             <img :alt="skill.skill_text" loading="lazy" width="64" height="64" decoding="async" data-nimg="1"
                 class="transition-transform duration-300 md:hover:scale-110"
                 :src="getImageUrl(skill.img_src)" style="color: transparent;">
         </a>
-        <p class="text-normal text-base md:text-lg">{{ skill.skill_text }}</p>
+        <p class="text-normal text-base md:text-lg text-primary-gray-800 dark:text-gray-900">{{ skill.skill_text }}</p>
     </div>
 </template>
 

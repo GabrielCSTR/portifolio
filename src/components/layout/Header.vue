@@ -1,37 +1,56 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+const isScrolledToTop = ref()
+onMounted(() => {
+    isScrolledToTop.value = true;
+    window.addEventListener('scroll', handleScroll);
+})
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+})
+const handleScroll =() => {
+    isScrolledToTop.value = window.scrollY === 0;
+}
+
 </script>
 
 <template>
-  <header class="sticky top-0 z-30 w-full border-b border-transparent max-md:border-gray-100 bg-gray/50 backdrop-blur-xl md:border-gray-100 scroll-smooth">
+  <header :class="{'bg-primary-gray/50 dark:bg-gray/50': !isScrolledToTop, 'bg-primary-gray dark:bg-gray': isScrolledToTop}" class="sticky top-0 z-30 w-full border-b border-transparent dark:max-md:border-gray-100 backdrop-blur-xl dark:md:border-gray-100">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
-      <span class="text-2xl md:text-3xl tracking-[-0.02em] text-gray-900 font-bold">&lt;GC /&gt;</span>
+      <!-- <img src="#" class="h-8" alt="Profile Logo" /> -->
+      <span class="text-2xl md:text-3xl tracking-[-0.02em] text-primary-gray-900 dark:text-gray-900 transition-all hover:text-primary-gray-600 dark:hover:text-gray-900 font-bold">&lt;GC /&gt;</span>
   </a>
   <div class="hidden w-full md:block md:w-auto" id="navbar-language">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
 
-        <ul class="flex flex-col font-medium mt-4 pr-5 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+        <ul class="flex flex-col font-medium mt-4 pr-5 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent bg-primary-gray-800 dark:bg-gray-800 md:dark:bg-transparent border-primary-gray-700 dark:border-gray-700">
             <li>
-                <a v-scroll="200" href="#hero" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Home</a>
+                <a v-scroll="200" href="#hero" class="text-base font-medium text-primary-gray-900 dark:text-gray-600 transition-all hover:text-primary-gray-600 dark:hover:text-gray-900 active:text-gray-600">Home</a>
             </li>
             <li>
-                <a v-scroll="200" href="#skills" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Tech Stack</a>
+                <a v-scroll="200" href="#skills" class="text-base font-medium text-primary-gray-900 dark:text-gray-600 transition-all hover:text-primary-gray-600 dark:hover:text-gray-900 active:text-gray-600">Tech Stack</a>
             </li>
             <li>
-                <a v-scroll="200" href="#projects" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Projects</a>
+                <a v-scroll="200" href="#projects" class="text-base font-medium text-primary-gray-900 dark:text-gray-600 transition-all hover:text-primary-gray-600 dark:hover:text-gray-900 active:text-gray-600">Projects</a>
             </li>
             <li>
-                <a v-scroll="200" href="#contacts" class="text-base font-medium text-gray-600 transition-all hover:text-gray-900 active:text-gray-600">Contact</a>
+                <a v-scroll="200" href="#contacts" class="text-base font-medium text-primary-gray-900 dark:text-gray-600 transition-all hover:text-primary-gray-600 dark:hover:text-gray-900 active:text-gray-600">Contact</a>
             </li>
         </ul>
 
-        <div class="h-6 w-0.5 bg-gray-100"></div>
+        <div class="h-6 w-0.5 bg-primary-gray-100 dark:bg-gray-100"></div>
+
         <div class="flex items-center ml-4">
-            <button class="relative flex justify-center items-center dark:color-gray-100 dark:hover:bg-gray-100 dark:active:bg-gray-200 rounded-lg p-1.5 transition-colors duration-200 [&amp;_svg]:stroke-gray-600 [&amp;_svg]:hover:stroke-gray-700 [&amp;_svg]:w-6 [&amp;_svg]:h-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button>
+            <button id="theme-toggle" class="relative flex justify-center items-center hover:bg-primary-gray-100 dark:text-gray-100 dark:hover:bg-gray-100 dark:active:bg-gray-200 rounded-lg p-1.5 transition-colors duration-200 [&amp;_svg]:stroke-gray-600 [&amp;_svg]:hover:stroke-gray-700 [&amp;_svg]:w-6 [&amp;_svg]:h-6">
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-gray-50 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+               
+            <svg id="theme-toggle-dark-icon" 
+                class="w-5 h-5 hidden text-gray-50 dark:text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path><path d="M19 3v4"></path><path d="M21 5h-4"></path></svg>
+            </button>
             
             <div class="flex items-center ml-4 md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
-            <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+            <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-50 dark:text-white rounded-lg cursor-pointer hover:bg-primary-gray-100 dark:hover:bg-gray-100  dark:hover:text-white">
                 <svg class="w-5 h-5 rounded-full me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900"><path fill="#b22234" d="M0 0h7410v3900H0z"/><path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300"/><path fill="#3c3b6e" d="M0 0h2964v2100H0z"/><g fill="#fff"><g id="d"><g id="c"><g id="e"><g id="b"><path id="a" d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"/><use xlink:href="#a" y="420"/><use xlink:href="#a" y="840"/><use xlink:href="#a" y="1260"/></g><use xlink:href="#a" y="1680"/></g><use xlink:href="#b" x="247" y="210"/></g><use xlink:href="#c" x="494"/></g><use xlink:href="#d" x="988"/><use xlink:href="#c" x="1976"/><use xlink:href="#e" x="2470"/></g></svg>
                 English (US)
             </button>
