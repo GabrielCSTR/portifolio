@@ -33,9 +33,19 @@ export function useGithub() {
             });
     }
 
+    async function getProjectDetails(project: string){
+        return axios.get(`https://api.github.com/repos/GabrielCSTR/${project}`, { headers })
+            .then(res => res.data)
+            .catch(err => {
+                console.log(err);
+                return null;
+            });
+    }
+
     return {
         getProjects,
         getProjectTags,
-        getProjectLanguages
+        getProjectLanguages,
+        getProjectDetails
     }
 }
